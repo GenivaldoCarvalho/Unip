@@ -12,6 +12,8 @@ namespace Marcketplace.Models
         public string preco { get; set; }
         public string imagem { get; set; }
         public string status { get; set; }
+        public string vendedor { get; set; }
+        public string categoria { get; set; }
 
     }
 

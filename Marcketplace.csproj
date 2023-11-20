@@ -250,13 +250,12 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ctlCarrinhoRepository.cs" />
     <Compile Include="Controllers\ctlItemCarrinho.cs" />
     <Compile Include="Controllers\ctlCarrinho.cs" />
     <Compile Include="Controllers\ctlProduto.cs" />
     <Compile Include="Controllers\ctlVendedor.cs" />
     <Compile Include="Controllers\ctlCliente.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProdController1.cs" />
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

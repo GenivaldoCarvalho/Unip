@@ -98,7 +98,7 @@ namespace Marcketplace.Controllers
                 OleDbConnection conexaobd = new OleDbConnection(ConnectionString3);
                 conexaobd.Open();
 
-                string query = "Select * from Vendedor where Vendedor.id = ID";
+                string query = "Select * from Vendedor where id = @ID";
                 OleDbCommand cmd = new OleDbCommand(query, conexaobd);
 
 
@@ -132,7 +132,7 @@ namespace Marcketplace.Controllers
                 OleDbConnection conexaobd = new OleDbConnection(ConnectionString3);
                 conexaobd.Open();
 
-                string query = "UPDATE Vendedor SET nome = @nome, nomefantasia = @nomefantasia , cnpj = @cnpj, email = #email , senha = @senha , comissao = @comissao, endereco = @enderecoWHERE Vendedor.id = ID";
+                string query = "UPDATE Vendedor SET nome = @nome, nomefantasia = @nomefantasia , cnpj = @cnpj, email = #email , senha = @senha , comissao = @comissao, endereco = @endereco WHERE id = @ID";
                 OleDbCommand cmd = new OleDbCommand(query, conexaobd);
 
                 var pmtnome = cmd.CreateParameter();
@@ -206,7 +206,7 @@ namespace Marcketplace.Controllers
             OleDbConnection conexaobd = new OleDbConnection(ConnectionString3);
             conexaobd.Open();
 
-            string query = "DELETE Vendedor WHERE Vendedor.id = ID";
+            string query = "DELETE Vendedor WHERE id = @ID";
             OleDbCommand cmd = new OleDbCommand(query, conexaobd);
 
             if (cmd.ExecuteNonQuery() > 0)

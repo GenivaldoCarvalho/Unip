@@ -11,7 +11,6 @@ using System.Data;
 using System.Globalization;
 
 
-
 namespace Marcketplace.Controllers
 {
     public class ctlProduto
@@ -25,37 +24,43 @@ namespace Marcketplace.Controllers
                 OleDbConnection conexaobd = new OleDbConnection(ConnectionString3);
                 conexaobd.Open();
 
-                string query = "INSERT INTO Produto(nome, cpf, email, senha, endereco) Values (@Nome,@cpf,@email,@senha,@endereco)";
+                string query = "INSERT INTO Produto(descricao, preco, imagem, status, vendedor, categoria) Values (@descricao,@preco,@imagem,@status,@vendedor,@categoria)";
                 OleDbCommand cmd = new OleDbCommand(query, conexaobd);
 
-                var pmtnome = cmd.CreateParameter();
-                pmtnome.ParameterName = "@nome";
+                var pmtdescricao = cmd.CreateParameter();
+                pmtnome.ParameterName = "@descricao";
                 pmtnome.DbType = System.Data.DbType.String;
-                pmtnome.Value = mdlProduto.nome;
+                pmtnome.Value = mdlProduto.descricao;
                 cmd.Parameters.Add(pmtnome);
 
-                var pmtcpf = cmd.CreateParameter();
-                pmtnome.ParameterName = "@cpf";
+                var pmtpreco = cmd.CreateParameter();
+                pmtnome.ParameterName = "@preco";
                 pmtnome.DbType = System.Data.DbType.Decimal;
-                pmtnome.Value = mdlProduto.cpf;
+                pmtnome.Value = mdlProduto.preco;
                 cmd.Parameters.Add(pmtnome);
 
-                var pmtemail = cmd.CreateParameter();
-                pmtnome.ParameterName = "@email";
+                var pmtimagem = cmd.CreateParameter();
+                pmtnome.ParameterName = "@imagem";
                 pmtnome.DbType = System.Data.DbType.String;
-                pmtnome.Value = mdlProduto.email;
+                pmtnome.Value = mdlProduto.imagem;
                 cmd.Parameters.Add(pmtnome);
 
-                var pmtsenha = cmd.CreateParameter();
-                pmtnome.ParameterName = "@senha";
+                var pmtstatus = cmd.CreateParameter();
+                pmtnome.ParameterName = "@status";
                 pmtnome.DbType = System.Data.DbType.String;
-                pmtnome.Value = mdlProduto.senha;
+                pmtnome.Value = mdlProduto.status;
                 cmd.Parameters.Add(pmtnome);
 
-                var pmtendereco = cmd.CreateParameter();
-                pmtnome.ParameterName = "@endereco";
+                var pmtvendedor = cmd.CreateParameter();
+                pmtnome.ParameterName = "@vendedor";
                 pmtnome.DbType = System.Data.DbType.String;
-                pmtnome.Value = mdlProduto.endereco;
+                pmtnome.Value = mdlProduto.vendedor;
+                cmd.Parameters.Add(pmtnome);
+
+                var pmtcategoria = cmd.CreateParameter();
+                pmtnome.ParameterName = "@categoria";
+                pmtnome.DbType = System.Data.DbType.String;
+                pmtnome.Value = mdlProduto.categoria;
                 cmd.Parameters.Add(pmtnome);
 
                 if (cmd.ExecuteNonQuery() > 0)
@@ -86,7 +91,7 @@ namespace Marcketplace.Controllers
                 OleDbConnection conexaobd = new OleDbConnection(ConnectionString3);
                 conexaobd.Open();
 
-                string query = "Select * from Produto where Produto.id = ID";
+                string query = "Select * from Produto where id = @ID";
                 OleDbCommand cmd = new OleDbCommand(query, conexaobd);
 
 
@@ -120,37 +125,43 @@ namespace Marcketplace.Controllers
                 OleDbConnection conexaobd = new OleDbConnection(ConnectionString3);
                 conexaobd.Open();
 
-                string query = "UPDATE Produto SET nome = @nome, cpf = @cpf , email = @email, senha = #senha , endereco = @endereco WHERE Produto.id = ID";
+                string query = "UPDATE Produto SET nome = @descricao, preco = @preco , imagem = @imagem, status = #status , vendedor = @vendedor , categoria = @categoria WHERE id = @ID";
                 OleDbCommand cmd = new OleDbCommand(query, conexaobd);
 
-                var pmtnome = cmd.CreateParameter();
-                pmtnome.ParameterName = "@nome";
+                var pmtdescricao = cmd.CreateParameter();
+                pmtnome.ParameterName = "@descricao";
                 pmtnome.DbType = System.Data.DbType.String;
-                pmtnome.Value = mdlProduto.nome;
+                pmtnome.Value = mdlProduto.descricao;
                 cmd.Parameters.Add(pmtnome);
 
-                var pmtcpf = cmd.CreateParameter();
-                pmtnome.ParameterName = "@cpf";
+                var pmtpreco = cmd.CreateParameter();
+                pmtnome.ParameterName = "@preco";
                 pmtnome.DbType = System.Data.DbType.Decimal;
-                pmtnome.Value = mdlProduto.cpf;
+                pmtnome.Value = mdlProduto.preco;
                 cmd.Parameters.Add(pmtnome);
 
-                var pmtemail = cmd.CreateParameter();
-                pmtnome.ParameterName = "@email";
+                var pmtimagem = cmd.CreateParameter();
+                pmtnome.ParameterName = "@imagem";
                 pmtnome.DbType = System.Data.DbType.String;
-                pmtnome.Value = mdlProduto.email;
+                pmtnome.Value = mdlProduto.imagem;
                 cmd.Parameters.Add(pmtnome);
 
-                var pmtsenha = cmd.CreateParameter();
-                pmtnome.ParameterName = "@senha";
+                var pmtstatus = cmd.CreateParameter();
+                pmtnome.ParameterName = "@status";
                 pmtnome.DbType = System.Data.DbType.String;
-                pmtnome.Value = mdlProduto.senha;
+                pmtnome.Value = mdlProduto.status;
                 cmd.Parameters.Add(pmtnome);
 
-                var pmtendereco = cmd.CreateParameter();
-                pmtnome.ParameterName = "@endereco";
+                var pmtvendedor = cmd.CreateParameter();
+                pmtnome.ParameterName = "@vendedor";
                 pmtnome.DbType = System.Data.DbType.String;
-                pmtnome.Value = mdlProduto.endereco;
+                pmtnome.Value = mdlProduto.vendedor;
+                cmd.Parameters.Add(pmtnome);
+
+                var pmtcategoria = cmd.CreateParameter();
+                pmtnome.ParameterName = "@categoria";
+                pmtnome.DbType = System.Data.DbType.String;
+                pmtnome.Value = mdlProduto.categoria;
                 cmd.Parameters.Add(pmtnome);
 
                 if (cmd.ExecuteNonQuery() > 0)

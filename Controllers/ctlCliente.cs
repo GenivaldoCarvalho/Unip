@@ -86,7 +86,7 @@ namespace Marcketplace.Controllers
                 OleDbConnection conexaobd = new OleDbConnection(ConnectionString3);
                 conexaobd.Open();
 
-                string query = "Select * from CLIENTE where Cliente.id = ID";
+                string query = "Select * from CLIENTE where id = @ID";
                 OleDbCommand cmd = new OleDbCommand(query, conexaobd);
 
 
@@ -182,7 +182,7 @@ namespace Marcketplace.Controllers
             OleDbConnection conexaobd = new OleDbConnection(ConnectionString3);
             conexaobd.Open();
 
-            string query = "DELETE CLIENTE WHERE cliente.id = ID";
+            string query = "DELETE CLIENTE WHERE id = @ID";
             OleDbCommand cmd = new OleDbCommand(query, conexaobd);
 
             if (cmd.ExecuteNonQuery() > 0)

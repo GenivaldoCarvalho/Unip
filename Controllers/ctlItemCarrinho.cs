@@ -28,16 +28,16 @@ namespace Marcketplace.Controllers
                 string query = "INSERT INTO itemCarrinho(quantidadte, total) Values (@quantidade,@total)";
                 OleDbCommand cmd = new OleDbCommand(query, conexaobd);
 
-                var pmtnome = cmd.CreateParameter();
+                var pmtquantidade = cmd.CreateParameter();
                 pmtnome.ParameterName = "@quantidade";
                 pmtnome.DbType = System.Data.DbType.String;
-                pmtnome.Value = mdlitemCarrinho.nome;
+                pmtnome.Value = mdlitemCarrinho.quantidade;
                 cmd.Parameters.Add(pmtnome);
 
-                var pmtcpf = cmd.CreateParameter();
+                var pmttotal = cmd.CreateParameter();
                 pmtnome.ParameterName = "@total";
                 pmtnome.DbType = System.Data.DbType.Decimal;
-                pmtnome.Value = mdlitemCarrinho.cpf;
+                pmtnome.Value = mdlitemCarrinho.total;
                 cmd.Parameters.Add(pmtnome);
 
                
